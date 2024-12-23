@@ -1,0 +1,78 @@
+.navbar{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    gap: 70px;
+    position: fixed;
+    font-size: 14px;
+    color: #e5e5e5;
+    background-image: linear-gradient(180deg, rgba(0,0,0,0.7) 10%, transparent);
+    z-index: 1;
+}
+
+.navbar-links{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.navbar-links img{
+    width:90px;
+}
+
+.navbar-links ul{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.navbar-links ul li{
+    cursor: pointer;
+}
+
+.navbar-rechts{
+    display: flex;
+    gap: 20px;
+    align-items: center;   
+}
+
+.navbar-rechts .icons{
+    width: 20px;
+    cursor: pointer;
+}
+
+.navbar-rechts .profil{
+    border-radius: 4px;
+    width: 35px;
+}
+
+.navbar-rechts .navbar-profil{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.navbar .abmelden-dropdown{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: max-content;
+    background: #191919;
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-decoration: underline;
+    z-index: 1;
+    display: none;
+}
+
+.navbar .abmelden-dropdown p{
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.navbar-profil:hover .abmelden-dropdown{
+    display: block;
+}
