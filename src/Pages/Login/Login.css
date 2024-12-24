@@ -54,6 +54,7 @@
     font-weight: 500;
     margin-top: 20px;
     cursor: pointer;
+    margin-bottom: 10px;
 }
 
 .form-hilfe{
@@ -78,7 +79,7 @@
 .form-switch{
     margin-top: 40px;
     color: #808080;
-    font-size: 15px;
+    font-size: 14px;
     text-align: center;
 }
 
