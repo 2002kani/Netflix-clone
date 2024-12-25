@@ -4,10 +4,24 @@ import SuchIcon from "../../Assets/search_icon.svg"
 import BenachrichtigungIcon from "../../Assets/bell_icon.svg"
 import ProfilIcon from "../../Assets/profile_img.png"
 import PfeilIcon from "../../Assets/caret_icon.svg"
+import { useEffect, useRef } from "react"
 
 const Navbar = () => {
+
+    const navRef = useRef();
+
+    useEffect(()=>{
+        window.addEventListener("scroll", ()=>{
+            if(window.scrollY >= 80){
+                navRef.current.classList.add("nav-dark");
+            } else{
+                navRef.current.classList.remove("nav-dark");
+            }
+        }); 
+    },[])
+
     return(
-        <div className="navbar">
+        <div ref={navRef} className="navbar">
             <div className="navbar-links">
                 <img src={Logo} alt="Netflix"></img>
                 <ul>
