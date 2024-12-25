@@ -1,8 +1,13 @@
 import "./Player.css"
 import BackArrowIcon from "../../Assets/back_arrow_icon.png"
 import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Player = () => {
+
+    const {id} = useParams();
+
+    const navigate = useNavigate();
 
     const [apiPlayer, SetApiPlayer] = useState({
         name: "",
@@ -20,7 +25,7 @@ const Player = () => {
       };
     
       useEffect(()=>{
-        fetch('https://api.themoviedb.org/3/movie/1241982/videos?language=en-US', options)
+        fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, options)
         .then(res => res.json())
         .then(res => SetApiPlayer(res.results[0]))
         .catch(err => console.error(err));
@@ -28,7 +33,7 @@ const Player = () => {
 
     return(
         <div className="player">
-            <img src={BackArrowIcon} alt=""></img>
+            <img src={BackArrowIcon} alt="" onClick={() => {navigate("/")}}></img>
             <iframe width="90%" height="90%" 
             src={`https://www.youtube.com/embed/${apiPlayer.key}`}
             title="trailer" frameBorder="0" allowFullScreen></iframe>
