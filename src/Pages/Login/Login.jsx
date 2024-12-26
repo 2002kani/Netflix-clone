@@ -10,16 +10,25 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const user_auth = async(e)=>{
+        e.preventDefault();
+        if(signState=== "Anmelden"){
+            await login(email, password);
+        } else{
+            await signup(name, email, password);
+        }
+    }
+
     return(
         <div className="login">
             <img src={Logo} className="login-logo"></img>
             <div className="login-form">
                 <h1>{signState}</h1>
                 <form>
-                    {signState === "Registrieren" ? <input type="text" value={name} onChange={(e)=>{e.target.value}}  placeholder="Dein Name"/> : <></> }
-                    <input type="email" value={email} onChange={(e)=>{e.target.value}} placeholder="Email"/>
-                    <input type="password" value={password} onChange={(e)=>{e.target.value}} placeholder="Passwort"/>
-                    <button> Registrieren </button>
+                    {signState === "Registrieren" ? <input type="text" value={name} onChange={(e)=>{setName(e.target.value)}}  placeholder="Dein Name"/> : <></> }
+                    <input type="email" value={email} onChange={(e)=>{setEmail(e.target.value)}} placeholder="Email"/>
+                    <input type="password" value={password} onChange={(e)=>{setPassword(e.target.value)}} placeholder="Passwort"/>
+                    <button onClick={user_auth} type="submit"> {signState} </button>
     
                     <div className="form-hilfe">
                         <div className="erinnern">
