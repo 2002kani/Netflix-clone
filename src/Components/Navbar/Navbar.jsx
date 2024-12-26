@@ -5,6 +5,7 @@ import BenachrichtigungIcon from "../../Assets/bell_icon.svg"
 import ProfilIcon from "../../Assets/profile_img.png"
 import PfeilIcon from "../../Assets/caret_icon.svg"
 import { useEffect, useRef } from "react"
+import { logout } from "../../Firebase"
 
 const Navbar = () => {
 
@@ -41,7 +42,7 @@ const Navbar = () => {
                 <div className="navbar-profil">
                     <img src={ProfilIcon} alt="" className="profil"></img>
                     <img src={PfeilIcon} alt=""></img>
-                    <div className="abmelden-dropdown">
+                    <div className="abmelden-dropdown" onClick={()=>{logout()}}>
                         <p> Abmelden </p>
                     </div>
                 </div>
