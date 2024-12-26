@@ -1,7 +1,8 @@
 import "./Login.css"
 import Logo from "../../Assets/logo.png"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { login, signup } from "../../Firebase";
+import Netflix_spinner from "../../Assets/netflix_spinner.gif"
 
 const Login = () => {
 
@@ -9,17 +10,24 @@ const Login = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const user_auth = async(e)=>{
         e.preventDefault();
+        setLoading(true);
         if(signState=== "Anmelden"){
             await login(email, password);
         } else{
             await signup(name, email, password);
         }
+        setLoading(false);
     }
 
     return(
+        // Falls es lädt wird div login-spinner angezeigt, falls nicht, dann kompletter code unten
+        loading ? <div className="login-spinner">
+            <img src={Netflix_spinner} alt=""></img>
+        </div> :
         <div className="login">
             <img src={Logo} className="login-logo"></img>
             <div className="login-form">
